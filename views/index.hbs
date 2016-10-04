@@ -1,2 +1,10 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
+
+<div class="user-session">
+  <button type="button" name="button"><a href="/posts/new">Create a New Post</a></button>
+  <!-- if NOT logged in show this link -->
+  <a href="/users">Login</a>
+  <!-- else show this -->
+  <a href="/users/logout">Logout</a>
+</div>
