@@ -30,13 +30,7 @@ function editUserName(userID, newUserName){
     })
 }
 
-function editUserEmail(userID, newEmail){
-  return knex('users')
-    .where('id', userID)
-    .update({
-      email: newEmail.email
-    })
-}
+
 
 function editUserPassword(userID, newPassword){
   return knex('users')
@@ -57,7 +51,6 @@ module.exports = {
   findUser: findUser,
   findUserbyName: findUserbyName,
   editName: editUserName,
-  editEmail:editUserEmail,
   editPassword: editUserPassword,
   deleteUser: deleteUser
 }

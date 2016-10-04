@@ -13,7 +13,7 @@ passport.use(new Local((username, password, done)=> {
       function(err, res){
         if(res) {
           done(null, userData)
-        } esle{
+        } else {
         done(null, false)
       }
     })

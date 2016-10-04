@@ -30,7 +30,7 @@ router.get('/register', (req, res, next) => {
 
 /* Register a new user */
 router.post('/register', (req, res, next) => {
-  if (!req.body.username || !req.body.password || !req.body.email) {
+  if (!req.body.username || !req.body.password) {
     res.render('error', {message:"Please fill in all fields"})
     return
   }
@@ -43,7 +43,6 @@ router.post('/register', (req, res, next) => {
         let userData = {
           user_name: req.body.username,
           password: bcrypt.hashSync(req.body.password, 8),      // passwords are never stored in plain text
-          email: req.body.email
         }
         userModel.add(userData)
           .then(() =>{
@@ -51,7 +50,7 @@ router.post('/register', (req, res, next) => {
           })
           .catch((err) => {
             console.log(err)
-            res.render('error', {message: 'error in inserting user data into database'})
+            res.render('error', {message: 'Uh oh something went wrong'})
           })
       }
     })
@@ -147,12 +146,6 @@ router.post('/update/:userInfo/:userID', (req, res, next) => {
         .then((data)=>{
           req.logout()
           res.redirect('/users/login')
-        })
-      break
-    case 'email':
-      userModel.editEmail(req.params.userID, req.body)
-        .then((data)=>{
-          res.redirect('/users/dashboard')
         })
       break
     case 'password':
