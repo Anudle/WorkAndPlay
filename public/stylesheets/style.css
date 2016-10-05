@@ -1,8 +1,7 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+#login{
+  width: 50vw;
+  margin: auto;
 }
-
-a {
-  color: #00B7FF;
+#login-title{
+  text-align: center;
 }
