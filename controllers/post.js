@@ -20,7 +20,7 @@ router.get('/new',  (req, res, next) => {
     res.redirect('/users/login')
     return
   }
-  res.render('createPost')
+  res.render('add')
 })
 
 router.post('/new', (req, res, next) => {
@@ -36,7 +36,7 @@ router.post('/new', (req, res, next) => {
       console.log(time);
       postModel.insertNewPost(req.body, userID, time)
         .then(() => {
-          res.redirect('/')
+          res.redirect('/users/dashboard')
         })
     })
     .catch((err) => {
