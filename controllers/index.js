@@ -10,7 +10,8 @@ const commentsModel = require('../model/comments_query')
 router.get('/', (req, res, next) => {
   postModel.getAllPostsWithCommentCount()
     .then((post) => {
-      res.render('index', {posts:post.rows})
+      res.render('index', {posts:post.rows,
+                           title: 'Work and Play in Paraguay'})
     })
     .catch((err) => {
       console.error('Error getting from database!')
