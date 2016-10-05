@@ -5,3 +5,26 @@
 #login-title{
   text-align: center;
 }
+
+#create-post{
+  width: 90vw;
+  margin: auto;
+}
+
+#post-submit{
+  float: right;
+  margin-top: 5vh;
+}
+
+#post-box{
+  float: right;
+}
+
+#copyright-add{
+  margin-top: 10vh
+}
+
+.post-title{
+  text-align: center;
+  margin-bottom: 5vh;
+}

@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     table.integer('user_id')
       .references('users.id')
       .onDelete('CASCADE');
-    table.text('text');
+    table.text('postBody');
   })
 }
 

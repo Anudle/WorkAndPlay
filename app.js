@@ -15,7 +15,7 @@ const passport = require('./passport'); // Require passport file
 
 const index = require('./controllers/index');
 const users = require('./controllers/users');
-
+const posts = require('./controllers/post');
 
 const app = express();
 
@@ -45,6 +45,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index); // read posts and make comments
 app.use('/users', users); // login create delete users
+app.use ('/post', posts);  // create new posts, edit posts, get posts by id, delete posts
+
 
 // app.use('/posts', posts);//create new posts, edit posts, get post by id, delete posts.
 
