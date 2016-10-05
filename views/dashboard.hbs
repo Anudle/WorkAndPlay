@@ -9,14 +9,17 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/">{{title}}</a>
+                <a class="navbar-brand" href="/users/dashboard">Work and Play in Paraguay</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/users/dashboard">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">Add Post</a>
                     </li>
                     <li>
                         <a href="about.html">About</a>
@@ -25,7 +28,7 @@
                         <a href="post.html">Contacts</a>
                     </li>
                     <li>
-                        <a href="/users">Login</a>
+                        <a href="/users/logout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -36,12 +39,12 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('images/waterfall.jpg')">
+    <header class="intro-header" style="background-image: url('../images/waterfall.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>{{title}}</h1>
+                        <h1>Work and Play in Paraguay</h1>
                         <hr class="small">
                         <span class="subheading">My Peace Corps journey</span>
                     </div>
@@ -58,6 +61,9 @@
                     <a href="post.html">
                         <h2 class="post-title">
                             Man must explore, and this is exploration at its greatest
+
+                            <p>Welcome {{userData.user_name}}!</p>
+
                         </h2>
                         <h3 class="post-subtitle">
                             Problems look mighty small from 150 miles up
@@ -100,6 +106,15 @@
                 </div>
                 <hr>
                 <!-- Pager -->
+
+                <ul class="pager">
+                    <li class="previous">
+                        <a href="#"> &larr; Previous</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
                 <ul class="pager">
                     <li class="next">
                         <a href="#">Older Posts &rarr;</a>

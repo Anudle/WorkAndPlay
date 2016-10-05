@@ -11,7 +11,7 @@ const userModel = require('../model/users_query')
 /* GET login page */
 router.get('/', (req, res, next) => {
   if(!req.isAuthenticated()){
-    console.log('Can\'t access route when not logged in')
+    console.log("Can't access route when not logged in")
     res.redirect('/users/login')
     return
   }
@@ -21,7 +21,7 @@ router.get('/', (req, res, next) => {
 /* GET registration page */
 router.get('/register', (req, res, next) => {
   if(req.isAuthenticated()){
-    console.log('Can\'t access route when logged in')
+    console.log("Can't access route when not logged in")
     res.redirect('/users/dashboard')
     return
   }
