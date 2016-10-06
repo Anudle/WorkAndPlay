@@ -9,7 +9,10 @@ function getAllPosts(){
       'users.id as userId',
       'users.user_name',
       'posts.id as postID',
-      'posts.created_at'
+      'posts.created_at',
+      'posts.postTitle',
+      'posts.postBody',
+      'posts.postTease'
       // 'posts.wins',
       // 'posts.losses',
       // 'posts.learned'
@@ -48,7 +51,9 @@ function insertNewPost(postContent, userID, postTime){
     .insert({
       created_at: postTime,
       user_id: userID,
-      postBody: postContent.post
+      postBody: postContent.post,
+      postTitle: postContent.title,
+      postTease: postContent.tease
     })
 }
 

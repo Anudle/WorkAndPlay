@@ -20,6 +20,8 @@ router.get('/', (req, res, next) => {
     })
 })
 
+
+
 router.get('/v1/API', (req, res, next) => {
   postModel.getAllPostsWithCommentCount().then(count => res.json(count.rows))
 })

@@ -10,11 +10,15 @@
                     Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="/users/dashboard">Work and Play in Paraguay</a>
+
+
+
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+
                     <li>
                         <a href="/users/dashboard">Home</a>
                     </li>
@@ -46,7 +50,7 @@
                     <div class="site-heading">
                         <h1>Work and Play in Paraguay</h1>
                         <hr class="small">
-                        <span class="subheading">My Peace Corps journey</span>
+                        <span class="subheading">Welcome {{userData.user_name}}!</span>
                     </div>
                 </div>
             </div>
@@ -54,25 +58,30 @@
     </header>
 
     <!-- Main Content -->
+
+
+  {{#each posts}}
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
                     <a href="post.html">
                         <h2 class="post-title">
-                            Man must explore, and this is exploration at its greatest
-
-                            <p>Welcome {{userData.user_name}}!</p>
-
+                          {{this.postTitle}}
                         </h2>
                         <h3 class="post-subtitle">
-                            Problems look mighty small from 150 miles up
+                          {{this.postTease}}
                         </h3>
                     </a>
-                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+                    <p class="post-meta">Posted by <a href="#">{{this.user_name}}</a> {{this.created_at}}</p>
                 </div>
+              </div>
+            </div>
+          </div>
+                {{/each}}
                 <hr>
-                <div class="post-preview">
+
+                <!-- <div class="post-preview">
                     <a href="post.html">
                         <h2 class="post-title">
                             I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
@@ -103,8 +112,10 @@
                         </h3>
                     </a>
                     <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                </div>
-                <hr>
+                </div> -->
+                <!-- <hr> -->
+
+
                 <!-- Pager -->
 
                 <ul class="pager">
@@ -115,7 +126,6 @@
             </div>
         </div>
     </div>
-
     <hr>
 
     <!-- Footer -->

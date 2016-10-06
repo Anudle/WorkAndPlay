@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 
 const passport = require('../passport')
 const userModel = require('../model/users_query')
+const postModel = require('../model/posts_query.js')
 
 
 /* GET login page */
@@ -92,10 +93,12 @@ router.get('/dashboard', (req, res, next) => {
     res.redirect('/users/login')
     return
   }
-  console.log(req.user);
-  res.render('dashboard', {userData: req.user})
+  postModel.getAllPosts()
+  .then(function(data){
+  res.render('dashboard', {userData: req.user,
+                           posts: data})
+                         })
 })
-
 /* Clear the session and unauthenticate the user */
 router.get('/logout', (req, res, next) => {
   if (!req.isAuthenticated()) {

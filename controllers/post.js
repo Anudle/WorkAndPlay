@@ -32,7 +32,7 @@ router.post('/new', (req, res, next) => {
   userModel.findUserbyName(req.user.user_name)
     .then((data) => {
       let userID = data.id
-      let time = moment().format('MMMM DD, YYYY  │  h:mma')
+      let time = moment().format('MMMM DD, YYYY')
       console.log(time);
       postModel.insertNewPost(req.body, userID, time)
         .then(() => {

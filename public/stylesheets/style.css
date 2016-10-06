@@ -19,7 +19,10 @@
 #post-box{
   float: right;
 }
-
+#title-box{
+  float: right;
+  margin-bottom: 5vh;
+}
 #copyright-add{
   margin-top: 10vh
 }
