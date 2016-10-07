@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>{{data.postTitle}}</h1>
+                        <h1>{{post.postTitle}}</h1>
                         <hr class="small">
                         <span class="subheading">
                           {{post.postTease}}
@@ -61,24 +61,34 @@
 
     <!-- Main Content -->
 
-    <section id='create-post' class='create-post'>
-      <h4 class='post-title'>Edit your Post Here</h4>
-      <form class="add-post" action="/post/new" method="post">
-
-          <div class="post">
-          <div>
-            <textarea id='title-box' name="title" rows="1" cols="100" placeholder='{{data.postTitle}}'></textarea>
-            <textarea id='title-box' name="tease" rows="1" cols="100" placeholder="{{data.postTease}}"></textarea>
-            <textarea id='post-box' name="post" rows="10" cols="100" placeholder="{{data.postBody}}"></textarea>
+    <article>
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                      <p>{{post.postBody}}</p>
+                  </div>
+              </div>
           </div>
-        </div>
-        <div>
-          <input id='post-submit' class="btn btn-defualt" type="submit">
-        </div>
-      </form>
-    </section>
+      </article>
+
+                <hr>
 
 
+                <!-- Pager -->
+                <ul class="pager">
+                    <li class="next">
+                      {{#if postEditAuthorized}}
+                        <h2> Are you sure you want to delete post?</h2>
+                        <br>
+                              <a class='delete-button' href='/{{post.postID}}/delete'>Yes</a>
+                              <a class = 'edit-button' href= '/users/dashboard'> No</a>
+                                  {{else}}
+                                {{/if}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <hr>
 
     <!-- Footer -->

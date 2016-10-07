@@ -69,6 +69,7 @@ router.get('/:id', (req, res, next) => {
         comments: comments,
         loggedInUser: loggedInUser
       })
+      console.log('this is the data:' + JSON.stringify(post))
     })
     .catch((err) => {
       console.error('Error caught in retrieving post from DB')
@@ -77,38 +78,24 @@ router.get('/:id', (req, res, next) => {
 })
 
 
-// router.get('/:id', function(req, res, next) {
-//             knex('posts').where({
-//                 id: req.params.id
-//             }).then((data) => {
-//                 res.render('article', {
-//                         data: data[0]
-//                     })
-//                     console.log(data)
-//                   })
-//                     .catch((err) => {
-//
-//                         console.error('Error')
-//                         next(err)
-//                     });
-//             })
 
 
-            router.get('/:id/delete', (req, res, next) => {
-                if (!req.isAuthenticated()) {
-                    console.log('Cannot delete a post when not logged in!')
-                    res.redirect('/users/login')
-                    return
-                }
-                postModel.deletePost(req.params.id)
-                    .then(() => {
-                        res.redirect('/')
-                    })
-                    .catch((err) => {
-                        console.error('Error caught in deleting post from DB')
-                        next(err)
-                    })
-            })
+            // 
+            // router.get('/:id/delete', (req, res, next) => {
+            //     if (!req.isAuthenticated()) {
+            //         console.log('Cannot delete a post when not logged in!')
+            //         res.redirect('/users/login')
+            //         return
+            //     }
+            //     postModel.deletePost(req.params.id)
+            //         .then(() => {
+            //             res.redirect('/')
+            //         })
+            //         .catch((err) => {
+            //             console.error('Error caught in deleting post from DB')
+            //             next(err)
+            //         })
+            // })
 
             router.post('/:id/comment', (req, res, next) => {
                 if (!req.isAuthenticated()) {

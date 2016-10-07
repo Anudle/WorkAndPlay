@@ -52,6 +52,54 @@ router.post('/:id/update', (req, res, next) => {
         })
 })
 
+router.get('/:id/deleteprompt', (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    res.redirect('/users/login')
+    return
+  }
+  let post = postModel.getPostByID(req.params.id)
+  let comments = commentsModel.getAllComments(req.params.id)
+  Promise.all([post,comments])
+    .then((data) => {
+      let post = data[0]
+      let postEditAuthorized
+      if (req.isAuthenticated() && post.user_name === req.user.user_name){
+        postEditAuthorized = true
+      }
+      let comments = data[1]
+      let loggedInUser = false
+      if (req.isAuthenticated()){
+        loggedInUser = req.user.user_name
+      }
+
+      res.render('delete', {
+        post: post,
+        postEditAuthorized: postEditAuthorized,
+      })
+      console.log('this is the data:' + JSON.stringify(post))
+    })
+    .catch((err) => {
+      console.error('Error caught in retrieving post from DB')
+      next(err)
+    })
+})
+
+router.get('/:id/delete', (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        console.log('Cannot delete a post when not logged in!')
+        res.redirect('/users/login')
+        return
+    }
+    postModel.deletePost(req.params.id)
+        .then(() => {
+            res.redirect('/users/dashboard')
+        })
+        .catch((err) => {
+            console.error('Error caught in deleting post from DB')
+            next(err)
+        })
+})
+
 router.get('/v1/API', (req, res, next) => {
   postModel.getAllPostsWithCommentCount().then(count => res.json(count.rows))
 })
