@@ -48,7 +48,6 @@ app.use('/users', users); // login create delete users
 app.use ('/post', posts);  // create new posts, edit posts, get posts by id, delete posts
 
 
-// app.use('/posts', posts);//create new posts, edit posts, get post by id, delete posts.
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -38,10 +38,10 @@ function getPostByID(id){
       'users.id as userId',
       'users.user_name',
       'posts.id as postID',
-      'posts.created_at'
-      // 'posts.wins',
-      // 'posts.losses',
-      // 'posts.learned'
+      'posts.created_at',
+      'posts.postTitle',
+      'posts.postBody',
+      'posts.postTease'
     )
     .where('posts.id', id).first()
 }

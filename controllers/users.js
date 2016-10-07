@@ -122,19 +122,7 @@ router.get('/update/:userInfo/:userID', (req, res, next) => {
   })
 })
 
-// router.post('/update/user_name/:userID', (req, res, next) => {
-//   if (!req.isAuthenticated() || parseInt(req.params.userID) !== req.user.id) {
-//     console.log('Cannot access this route when not logged in')
-//     res.render('error', {message: 'Access this route is denied'})
-//     return
-//   }
-//   userModel.editUserName(req.params.userID, req.body)
-//     .then((data)=>{
-//       console.log(data);
-//       req.logout()
-//       res.redirect('/users/login')
-//     })
-// })
+
 
 router.post('/update/:userInfo/:userID', (req, res, next) => {
   if (!req.isAuthenticated() || parseInt(req.params.userID) !== req.user.id) {

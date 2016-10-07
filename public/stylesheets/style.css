@@ -31,3 +31,10 @@
   text-align: center;
   margin-bottom: 5vh;
 }
+
+.delete-button{
+  margin-right: 20vw;
+}
+.edit-button{
+  margin-right:43vw;
+}

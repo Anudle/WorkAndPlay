@@ -1,5 +1,4 @@
 
-
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
         <div class="container-fluid">
@@ -9,14 +8,21 @@
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="/">{{title}}</a>
+                <a class="navbar-brand" href="/users/dashboard">Work and Play in Paraguay</a>
+
+
+
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
+
                     <li>
-                        <a href="/">Home</a>
+                        <a href="/users/dashboard">Home</a>
+                    </li>
+                    <li>
+                        <a href="/post/new">Add Post</a>
                     </li>
                     <li>
                         <a href="about.html">About</a>
@@ -25,7 +31,7 @@
                         <a href="post.html">Contacts</a>
                     </li>
                     <li>
-                        <a href="/users">Login</a>
+                        <a href="/users/logout">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -36,14 +42,17 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('images/waterfall.jpg')">
+    <header class="intro-header" style="background-image: url('../images/waterfall.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>{{title}}</h1>
+                        <h1>{{data.postTitle}}</h1>
                         <hr class="small">
-                        <span class="subheading">My Peace Corps journey</span>
+                        <span class="subheading">
+                          {{data.postTease}}
+                          <br>
+                          Created by on {{data.created_at}}</span>
                     </div>
                 </div>
             </div>
@@ -51,26 +60,26 @@
     </header>
 
     <!-- Main Content -->
-    {{#each posts}}
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                  <div class="post-preview">
-                      <a href="/post/{{this.postID}}">
-                          <h2 class="post-title">
-                            {{this.postTitle}}
-                          </h2>
-                          <h3 class="post-subtitle">
-                            {{this.postTease}}
-                          </h3>
-                      </a>
-                      <p class="post-meta">Posted by <a href="#">{{this.user_name}}</a> {{this.created_at}}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-                  {{/each}}
-                <hr>
+
+    <section id='create-post' class='create-post'>
+      <h4 class='post-title'>Edit your Post Here</h4>
+      <form class="add-post" action="/post/new" method="post">
+
+          <div class="post">
+          <div>
+            <textarea id='title-box' name="title" rows="1" cols="100" value= '{{post.postTitle}}'></textarea>
+            <textarea id='title-box' name="tease" rows="1" cols="100" value="Teaser"></textarea>
+            <textarea id='post-box' name="post" rows="10" cols="100"></textarea>
+          </div>
+        </div>
+        <div>
+          <input id='post-submit' class="btn btn-defualt" type="submit">
+        </div>
+      </form>
+    </section>
+
+
+    <hr>
 
     <!-- Footer -->
     <footer>
